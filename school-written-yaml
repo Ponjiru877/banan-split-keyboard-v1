@@ -1,0 +1,112 @@
+units:
+    kx: cx
+    ky: cy
+    px: kx + 4
+    py: ky + 4
+points:
+    zones:
+        matrix:
+            key:
+                padding: ky
+                spread: kx         
+            columns:
+                pinky:
+                ring:
+                    key.stagger:  10
+                middle:
+                    key.stagger: 10
+                index:
+                    key.stagger: -10
+                far:
+                    key.stagger: -5
+            rows:
+                bottom:
+                home:
+                top:
+        thumb:
+            anchor:
+                ref: matrix_index_bottom
+                shift: [-0.2kx,-1ky + (-4)]
+            columns:
+                thmb1:
+                thmb2:
+                    key:
+                        splay: -15
+                        shift: [2,-2]
+                thmb3:
+                    key:
+                        splay: -15
+                        shift: [3.8,-3.9]
+            rows:
+                cluster:
+outlines:
+    raw:
+      - what: rectangle
+        where: true
+        size: [px,py]
+    keys:
+      - what: rectangle
+        where: true
+        size: [kx-0.5,ky-0.5]
+    board:
+      - what: polygon
+        operation: stack
+        points:
+          - ref: thumb_thmb3_cluster
+            shift: [0.5px,0.5py]
+          - ref: thumb_thmb3_cluster
+            shift: [0.5px,-0.5py]
+          - ref: thumb_thmb3_cluster
+            shift: [-0.4px,-0.5py]
+
+          - ref: thumb_thmb2_cluster
+            shift: [0.3px,-0.5py]
+          - ref: thumb_thmb2_cluster
+            shift: [-0.3px,-0.5py]
+
+          - ref: thumb_thmb1_cluster
+            shift: [0.4px,-0.5py]
+          - ref: thumb_thmb1_cluster
+            shift: [-0.5px,-0.5py]
+
+          - ref: matrix_pinky_bottom
+            shift: [-0.5px,-0.5py]
+
+          - ref: matrix_pinky_top
+            shift: [-0.5px,0.5py]
+          - ref: matrix_pinky_top
+            shift: [0.3px,0.5py]
+
+          - ref: matrix_ring_top
+            shift: [-0.5px,0.5py]
+          - ref: matrix_ring_top
+            shift: [0.33px,0.5px] 
+
+          - ref: matrix_middle_top
+            shift: [-0.49px,0.5py]
+          - ref: matrix_middle_top
+            shift: [0.5px,0.5py]
+
+          - ref: matrix_index_top
+            shift: [-0.3px,0.5py]
+          - ref: matrix_index_top
+            shift: [0.5px,0.5py]
+
+
+          - ref: matrix_far_top
+            shift: [-0.3px,0.5py]
+          - ref: matrix_far_top
+            shift: [0.4px,0.5py]
+          - ref: matrix_far_top
+            shift: [2px,0.5py]
+
+          - ref: matrix_far_bottom
+            shift: [2px,-0.5py]
+
+        fillet: 2
+    combo:
+      - name: board
+      - operation: subtract
+        name: keys
+
+            
