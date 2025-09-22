@@ -70,6 +70,12 @@ outlines:
             shift: [-0.5px,-0.5py]
 
           - ref: matrix_pinky_bottom
+            shift: [1.5px,-0.5py]
+          - ref: matrix_pinky_bottom
+            shift: [0.5px,0py]
+          - ref: matrix_pinky_bottom
+            shift: [0.5px,-0.5py]
+          - ref: matrix_pinky_bottom
             shift: [-0.5px,-0.5py]
 
           - ref: matrix_pinky_top
