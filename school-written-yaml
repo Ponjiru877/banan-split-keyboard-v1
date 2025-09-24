@@ -6,23 +6,23 @@ units:
 points:
     zones:
         matrix:
-            key:
-                padding: ky
-                spread: kx         
-            columns:
-                pinky:
-                ring:
-                    key.stagger:  10
-                middle:
-                    key.stagger: 10
-                index:
-                    key.stagger: -10
-                far:
-                    key.stagger: -5
-            rows:
-                bottom:
-                home:
-                top:
+          key:
+            padding: ky
+            spread: kx         
+          columns:
+              pinky:
+              ring:
+                  key.stagger:  10
+              middle:
+                  key.stagger: 10
+              index:
+                  key.stagger: -10
+              far:
+                  key.stagger: -5
+          rows:
+              bottom:
+              home:
+              top:
         thumb:
             anchor:
                 ref: matrix_index_bottom
@@ -68,11 +68,14 @@ outlines:
             shift: [0.4px,-0.5py]
           - ref: thumb_thmb1_cluster
             shift: [-0.5px,-0.5py]
+          - ref: thumb_thmb1_cluster
+            shift: [-0.5px,0.5py]
+
 
           - ref: matrix_pinky_bottom
-            shift: [1.5px,-0.5py]
+            shift: [0.5px,0.py]
           - ref: matrix_pinky_bottom
-            shift: [0.5px,0py]
+            shift: [0.5px,-0.5py]
           - ref: matrix_pinky_bottom
             shift: [0.5px,-0.5py]
           - ref: matrix_pinky_bottom
@@ -114,5 +117,9 @@ outlines:
       - name: board
       - operation: subtract
         name: keys
-
+pcbs: 
+  tutorial:
+    outlines: 
+      main:
+        outline: board
             
