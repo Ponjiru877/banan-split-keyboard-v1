@@ -1,3 +1,5 @@
+meta:
+  engine: 4.1.0
 units:
     kx: cx
     ky: cy
@@ -6,37 +8,41 @@ units:
 points:
     zones:
         matrix:
-            key:
-                padding: ky
-                spread: kx         
-            columns:
-                pinky:
-                ring:
-                    key.stagger:  10
-                middle:
-                    key.stagger: 10
-                index:
-                    key.stagger: -10
-                far:
-                    key.stagger: -5
-            rows:
-                bottom:
-                home:
-                top:
+          anchor:
+            shift: [150,-150]
+          key:
+            padding: ky
+            spread: kx         
+          columns:
+              pinky:
+              ring:
+                  key.stagger:  10
+              middle:
+                  key.stagger: 10
+              index:
+                  key.stagger: -10
+              far:
+                  key.stagger: -5
+          rows:
+              bottom:
+              home:
+              top:
         thumb:
             anchor:
                 ref: matrix_index_bottom
                 shift: [-0.2kx,-1ky + (-4)]
             columns:
                 thmb1:
+                    key:
+                      shift: [0,-1]
                 thmb2:
                     key:
                         splay: -15
-                        shift: [2,-2]
+                        shift: [2,-2.9]
                 thmb3:
                     key:
                         splay: -15
-                        shift: [3.8,-3.9]
+                        shift: [4.4,-4.7]
             rows:
                 cluster:
 outlines:
@@ -53,41 +59,83 @@ outlines:
         operation: stack
         points:
           - ref: thumb_thmb3_cluster
-            shift: [1px,-0.5py]
+            shift: [0.5px,0.5py]
+          - ref: thumb_thmb3_cluster
+            shift: [0.5px,-0.5py]
+          - ref: thumb_thmb3_cluster
+            shift: [-0.4px,-0.5py]
 
           - ref: thumb_thmb2_cluster
-            shift: [0px,-0.5py]
+            shift: [0.3px,-0.5py]
+          - ref: thumb_thmb2_cluster
+            shift: [-0.3px,-0.5py]
 
           - ref: thumb_thmb1_cluster
-            shift: [0.5px,-0.5py]
+            shift: [0.4px,-0.5py]
+          - ref: thumb_thmb1_cluster
+            shift: [-0.5px,-0.5py]
+          - ref: thumb_thmb1_cluster
+            shift: [-0.5px,0.5py]
 
+
+          - ref: matrix_pinky_bottom
+            shift: [0.5px,0.py]
+          - ref: matrix_pinky_bottom
+            shift: [0.5px,-0.5py]
+          - ref: matrix_pinky_bottom
+            shift: [0.5px,-0.5py]
           - ref: matrix_pinky_bottom
             shift: [-0.5px,-0.5py]
 
           - ref: matrix_pinky_top
             shift: [-0.5px,0.5py]
+          - ref: matrix_pinky_top
+            shift: [0.3px,0.5py]
 
           - ref: matrix_ring_top
             shift: [-0.5px,0.5py]
+          - ref: matrix_ring_top
+            shift: [0.33px,0.5px] 
 
           - ref: matrix_middle_top
-            shift: [-0.4px,0.5py]
+            shift: [-0.49px,0.5py]
           - ref: matrix_middle_top
-            shift: [0.4px,0.5py]
+            shift: [0.5px,0.5py]
 
           - ref: matrix_index_top
-            shift: [1px,0.5py]
+            shift: [-0.3px,0.5py]
+          - ref: matrix_index_top
+            shift: [0.5px,0.5py]
+
 
           - ref: matrix_far_top
-            shift: [1.5px,0.5py]
+            shift: [-0.3px,0.5py]
+          - ref: matrix_far_top
+            shift: [0.4px,0.5py]
+          - ref: matrix_far_top
+            shift: [2px,0.5py]
 
           - ref: matrix_far_bottom
-            shift: [1.5px,0.5py]
+            shift: [2px,-0.5py]
 
         fillet: 2
     combo:
       - name: board
       - operation: subtract
         name: keys
-
-            
+pcbs: 
+  tutorial:
+    template: kicad8
+    outlines: 
+      main:
+        outline: board
+    footprints:
+      choc_hotswap:
+        what: ceoliode/switch_choc_v1_v2
+        where: board
+        params:
+          reverse: true
+          hotswap: true
+          choc_v2_support: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
