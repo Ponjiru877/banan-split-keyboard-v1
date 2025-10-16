@@ -34,15 +34,15 @@ points:
             columns:
                 thmb1:
                     key:
-                      shift: [0,-1]
+                      shift: [-0.2,-1.2]
                 thmb2:
                     key:
                         splay: -15
-                        shift: [2,-2.9]
+                        shift: [2,-3.5]
                 thmb3:
                     key:
                         splay: -15
-                        shift: [4.4,-4.7]
+                        shift: [4.6,-5.1]
             rows:
                 cluster:
 outlines:
@@ -124,7 +124,7 @@ outlines:
       - operation: subtract
         name: keys
 pcbs: 
-  tutorial:
+  split_nana:
     template: kicad8
     outlines: 
       main:
@@ -137,3 +137,6 @@ pcbs:
           hotswap: true
           from: "{{column_net}}"
           to: "{{colrow}}"
+          include_keycap: true
+          choc_v1_support: true
+          choc_v2_support: true
