@@ -75,7 +75,7 @@ outlines:
           - ref: thumb_thmb1_cluster
             shift: [-0.5px,-0.5py]
           - ref: thumb_thmb1_cluster
-            shift: [-0.5px,0.5py]
+            shift: [-0.5px,0.55py]
 
 
           - ref: matrix_pinky_bottom
@@ -137,6 +137,32 @@ pcbs:
           hotswap: true
           from: "{{column_net}}"
           to: "{{colrow}}"
+          reversible: true
           include_keycap: true
           choc_v1_support: true
           choc_v2_support: true
+      nice_nano:
+        what: ceoloide/mcu_nice_nano
+        where: 
+          ref: matrix_far_top
+          shift: [25,-8]
+        params:
+          side: B
+          reversible: true
+          reverse_mount: true
+      diode:
+        what: diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0,-5]
+      reset:
+        what: switch_reset
+        params:
+          from: GND
+          to: RST
+        where:
+          ref.aggregate.parts: [matrix_far_top]
+          shift: [43,0]
